@@ -4,7 +4,7 @@ class Database extends mysqli
 {
     private $servername = "localhost";
     private $username = "root";
-    private $password = "j";
+    private $password = "";
     private $database = "php-wol";
     private $mysqli;
 
@@ -40,7 +40,7 @@ class Database extends mysqli
     function create()
     {
         $query = "
-CREATE DATABASE IF NOT EXISTS `{$this->database}`;
+CREATE DATABASE  `{$this->database}`;
 USE `{$this->database}`;
 CREATE TABLE IF NOT EXISTS server (
   id varchar(45) NOT NULL PRIMARY KEY,
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS server (
   broadcast varchar(16)
 );
 
-CREATE TABLE IF NOT EXISTS user (
+CREATE TABLE  user (
   id int AUTO_INCREMENT NOT NULL PRIMARY KEY,
   username varchar(30) NOT NULL UNIQUE,
   password varchar(128) NOT NULL,
@@ -59,6 +59,6 @@ CREATE TABLE IF NOT EXISTS user (
 
 INSERT INTO user VALUES (1, 'admin', 'f21c36829f29ba240b1de7d9487b5aa9bacf4e7309f8a61c84591e4f0642cf16fa804d66613778e315b64f377ceae352eb3c6be44073c15e7775983c69763a3a', 3);
 		";
-        $this->multi_query($query);
+        var_dump($this->multi_query($query));
     }
 }

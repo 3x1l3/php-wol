@@ -11,15 +11,15 @@ function getServers(){
 			const thisServer = servers[server];
 			var row = $("<tr><td>" + thisServer.name + "</td><td>" + thisServer.ip + "</td><td></td><td></td></tr>");
 			var col = $('<div class="btn-group"/>');
-			col.append('<a class="btn btn-primary"><i class="glyphicon glyphicon-off"></i> Wake Up</a>').children().click(function(){wake(thisServer);});
-			col.append($('<a class="btn btn-default"><i class="glyphicon glyphicon-refresh"></i> Refresh</a>').click(function(){ping(thisServer);}));
+			col.append('<a class="btn btn-primary"><i class="fas fa-power-off"></i> Wake Up</a>').children().click(function(){wake(thisServer);});
+			col.append($('<a class="btn btn-default"><i class="fas fa-sync"></i> Refresh</a>').click(function(){ping(thisServer);}));
 			
 			if(level > 1){
 				
 				var btngrp = $('<div class="btn-group"><a class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a><ul class="dropdown-menu" role="menu"></ul></div>');
 			
-				btngrp.children("ul").append($('<li><a><i class="glyphicon glyphicon-pencil"></i> Edit</a></li>').click(function(){edit(thisServer);}));
-				btngrp.children("ul").append($('<li><a><i class="glyphicon glyphicon-trash"></i> Remove</a></li>').click(function(){remove(thisServer);}));
+				btngrp.children("ul").append($('<li><a><i class="fas fa-pencil-alt"></i> Edit</a></li>').click(function(){edit(thisServer);}));
+				btngrp.children("ul").append($('<li><a><i class="fas fa-trash"></i> Remove</a></li>').click(function(){remove(thisServer);}));
 				
 				col.append(btngrp);
 			}
@@ -98,22 +98,22 @@ function wake(server) {
 }
 
 function ping(server){
-	server.statusField.html("Loading...");
+	server.statusField.html("<i class='fas fa-spinner fa-spin'></i> ");
 	server.statusField.css({color:"blue"});
 	
 	$.post("ping.php", {ip:server.ip})
 		.done(function(data){
 			if(data.response == "alive"){
-				server.statusField.html("Alive");
+				server.statusField.html("<i class='fas fa-check-circle'></i>");
 				server.statusField.css({color:"green"});
 			}
 			if(data.response == "dead"){
-				server.statusField.html("Dead");
+				server.statusField.html("<i class='fas fa-minus-circle'></i>");
 				server.statusField.css({color:"red"});
 			}
 		})
 		.fail(function(data){
-			server.statusField.html("&lt;error&gt;");
+			server.statusField.html("<i class='fas fa-question-circle'></i>");
 			server.statusField.css({color:"orange"});
 		});
 }
@@ -160,7 +160,7 @@ function showLogin(nocheck = false){
 				$("#login-modal").modal('show');
 			}
 			else {
-				usernameDisplay.html(data.response.username);
+				usernameDisplay.html('<i class="fas fa-user"></i> '+ data.response.username);
 				level = data.response.level;
 				$('.require-level-2').css({display:(level >= 2)});
 				$('.require-level-1').css({display:(level >= 1)});

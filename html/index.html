@@ -3,7 +3,10 @@
 	<head>
 		<title>Admin Page</title>
 		<meta charset="UTF-8"/>
-		<link rel="stylesheet" href="css/yeti.bootstrap.min.css"/>
+		<link rel="stylesheet" href="css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="css/fontawesome-all.min.css"/>
+
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700" rel="stylesheet">
 		<link rel="stylesheet" href="css/custom.css"/>
 		<script src="js/jquery-3.2.1.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
@@ -64,7 +67,7 @@
 				</div>
 			  </div>
 			  <div class="modal-footer">
-				<button type="button" class="btn btn-success" data-dismiss="modal" onclick="login()"><span class="glyphicon glyphicon-log-in"></span> Login</button>
+				<button type="button" class="btn btn-success" data-dismiss="modal" onclick="login()"><span class="fas fa-sign-out-alt"></span> Login</button>
 			  </div>
 			</div>
 		  </div>
@@ -76,9 +79,9 @@
 				</h1>
 			</div>
 			<h1 class="btn-group pull-right">
-				<button class="btn btn-default" onclick="logout()"><span class="glyphicon glyphicon-log-out"></span></button>
-				<button class="btn btn-default" onclick="getServers()"><span class="glyphicon glyphicon-refresh"></span></button>
-				<button class="btn btn-success require-level-2" onclick="addServer()"><span class="glyphicon glyphicon-plus"></span></button>
+				<button class="btn btn-default" onclick="logout()"><span class="fas fa-sign-out-alt "></span></button>
+				<button class="btn btn-default" onclick="getServers()"><span class="fas fa-sync"></span></button>
+				<button class="btn btn-success require-level-2" onclick="addServer()"><span class="fas fa-plus"></span></button>
 			</h1>
 
 			<table class="table table-striped">
