@@ -10,9 +10,9 @@ function getServers(){
 		for(var server in servers){
 			const thisServer = servers[server];
 			var row = $("<tr><td>" + thisServer.name + "</td><td>" + thisServer.ip + "</td><td></td><td></td></tr>");
-			var col = $('<div class="btn-group"/>');
-			col.append('<a class="btn btn-primary"><i class="fas fa-power-off"></i> Wake Up</a>').children().click(function(){wake(thisServer);});
-			col.append($('<a class="btn btn-default"><i class="fas fa-sync"></i> Refresh</a>').click(function(){ping(thisServer);}));
+			var col = $('<div class="btn-group">');
+			col.append('<a class="btn btn-primary"><i class="fas fa-power-off"></i></a>').children().click(function(){wake(thisServer);});
+			col.append($('<a class="btn btn-default"><i class="fas fa-sync"></i></a>').click(function(){ping(thisServer);}));
 			
 			if(level > 1){
 				
